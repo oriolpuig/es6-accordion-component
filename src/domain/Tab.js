@@ -1,3 +1,5 @@
+import CustomElement from './CustomElement';
+
 export default class Tab {
     constructor(title, content) {
         this._isActive = false;
@@ -15,5 +17,22 @@ export default class Tab {
     }
     isActive() {
         return this._isActive;
+    }
+
+    renderHeader(idx, onClickCallback) {
+        const titleElement = new CustomElement('dt').create();
+        titleElement.className = `accordion ${this.isActive() ? 'active' : ''}`;
+        titleElement.innerHTML = this.title;
+        titleElement.onclick = () => { onClickCallback(idx); }
+        return titleElement;
+    }
+
+    renderPanel() {
+        const contentElement = new CustomElement('dd').create();
+        contentElement.className = 'panel';
+        const paragraphElement = new CustomElement('p').create();
+        paragraphElement.innerHTML = this.content;
+        contentElement.append(paragraphElement);
+        return contentElement;
     }
 }
