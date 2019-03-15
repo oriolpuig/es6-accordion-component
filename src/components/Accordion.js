@@ -1,21 +1,32 @@
 import Component from './Component';
 import CustomElement from '../domain/CustomElement';
+import Tab from '../domain/Tab';
+import './Accordion.scss';
 
 export default class Accordion extends Component {
-    constructor(elements) {
+    constructor(elements = []) {
         super('MyAccordion');
-        this._elements = elements || [];
+        this._tabs = this.mapElementsToTabs(elements);
         this._collection = null;
+        this._selectedIndex = 0;
     }
 
-    title(title) {
+    mapElementsToTabs(elements = []) {
+        if (elements.length === 0) return elements;
+        return elements.map(it => new Tab(it.title, it.message));
+    }
+
+    title(tab, idx) {
         const titleElement = new CustomElement('dt').create();
-        titleElement.innerHTML = title;
+        titleElement.className = `accordion ${tab.isActive() ? 'active' : ''}`;
+        titleElement.innerHTML = tab.title;
+        titleElement.onclick = () => { this.expand(idx); }
         return titleElement;
     }
 
     content(content) {
         const contentElement = new CustomElement('dd').create();
+        contentElement.className = 'panel';
         const paragraphElement = new CustomElement('p').create();
         paragraphElement.innerHTML = content;
         contentElement.append(paragraphElement);
@@ -28,12 +39,14 @@ export default class Accordion extends Component {
     }
 
     html() {
-        if (this._elements && this._elements.length > 0) {
+        if (this._tabs && this._tabs.length > 0) {
             this._collection = this._collection || new CustomElement('dl', this._id).create();
-            this._elements.forEach(it => {
-                const title = this.title(it.title);
-                const content = this.content(it.message);
-
+            this._tabs.forEach((it, idx) => {
+                if (idx === this._selectedIndex) {
+                    it.expand();
+                }
+                const title = this.title(it, idx);
+                const content = this.content(it.content);
                 this.addElementToCollection(title);
                 this.addElementToCollection(content);
             });
@@ -42,9 +55,27 @@ export default class Accordion extends Component {
         return this._collection;
     }
 
-    addTab(tab) {
+    addTab(element) {
         this.remove();
-        this._elements.push(tab);
+        this._tabs.push(new Tab(element.title, element.message));
         this.render();
+    }
+
+    expand(idx) {
+        this.remove();
+        this.collapseAll();
+        this._selectedIndex = idx;
+        this.render();
+        console.log('Expand --> ' + idx);
+    }
+    collapse(idx) {
+        this.remove();
+        this.collapseAll();
+        this._selectedIndex = null;
+        console.log('Collapse --> ' + idx);
+    }
+
+    collapseAll() {
+        this._tabs.forEach(it => it.collapse());
     }
 }
