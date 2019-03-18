@@ -1,0 +1,51 @@
+:root {
+  --MyAccordion-color: #fff;
+  --MyAccordion-content-backgroundColor: #f2f0f5;
+  --MyAccordion-tab-backgroundColor: #85a6b5;
+  --MyAccordion-tab-after-color: #777;
+  --MyAccordion-tab-onHover-backgroundColor: #1e97b0;
+  --MyAccordion-tab-isActive-backgroundColor: #1e97b0;
+}
+
+.MyAccordion-tab {
+  background-color: var(--MyAccordion-tab-backgroundColor);
+  border: none;
+  color: var(--MyAccordion-color);
+  cursor: pointer;
+  font-size: 15px;
+  outline: none;
+  padding: 18px;
+  text-align: left;
+  transition: 0.4s;
+}
+
+.MyAccordion-tab.is-active {
+  background-color: var(--MyAccordion-tab-isActive-backgroundColor);
+}
+
+.MyAccordion-tab.is-active::after {
+  content: "\2796"; /* (-) */
+}
+
+.MyAccordion-tab.is-active + dd {
+  display: block;
+}
+
+.MyAccordion-tab:hover {
+  background-color: var(--MyAccordion-tab-onHover-backgroundColor);
+}
+
+.MyAccordion-tab::after {
+  color: var(--MyAccordion-tab-after-color);
+  content: "\02795"; /* (+) */
+  float: right;
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.MyAccordion-content {
+  background-color: var(--MyAccordion-content-backgroundColor);
+  display: none;
+  overflow: hidden;
+  padding: 18px;
+}

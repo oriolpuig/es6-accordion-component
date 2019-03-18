@@ -1,0 +1,38 @@
+:root {
+  --fontFamily: Arial, Helvetica, sans-serif;
+  --Environment-backgroundColor: black;
+  --Environment-color: white;
+  --Environment-isSticked-backgroundColor: yellow;
+  --Environment-production-backgroundColor: #04549e;
+  --Environment-development-backgroundColor: #e45e55;
+}
+
+.Environment {
+  background: var(--Environment-backgroundColor);
+  color: var(--Environment-color);
+  font-family: var(--fontFamily);
+  position: absolute;
+  right: -30px;
+  text-align: center;
+  top: 35px;
+  transform: rotate(45deg);
+  width: 150px;
+}
+
+.Environment--development {
+  background: var(--Environment-development-backgroundColor);
+}
+
+.Environment--production {
+  background: var(--Environment-production-backgroundColor);
+}
+
+@media (max-width: 767px) {
+
+  .Environment {
+    bottom: 0;
+    right: 0;
+    top: auto;
+    transform: none;
+  }
+}

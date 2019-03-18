@@ -1,6 +1,7 @@
 export default class Component {
     constructor(id) {
         this._id = id;
+        this._rootClass = this._id;
         this._rootElement = document.getElementById('root');
     }
 

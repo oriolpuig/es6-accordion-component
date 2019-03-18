@@ -1,0 +1,21 @@
+@import "../../node_modules/normalize.css/normalize.css";
+@import "suitcss-base";
+@import "_components.scss";
+
+:root {
+  --base-color: inherit;
+  --base-font: 16px sans-serif;
+}
+
+html {
+  color: var(--base-color);
+  font-size: calc(var(--base-font) * 2);
+}
+
+@media (min-width: 1024px) {
+
+  #root {
+    margin: 0 auto;
+    width: 954px;
+  }
+}
