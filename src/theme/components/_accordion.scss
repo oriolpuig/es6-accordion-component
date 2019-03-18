@@ -1,0 +1,69 @@
+@import "../_variables.scss";
+
+:root {
+  --MyAccordion-color: var(--colorWhite);
+  --MyAccordion-content-backgroundColor: #f2f0f5;
+  --Myaccordion-button-backgroundColor: var(--colorGreen);
+  --Myaccordion-button-color: var(--colorWhite);
+  --Myaccordion-button-onHover-backgroundColor: var(--colorDarkGreen);
+  --MyAccordion-tab-backgroundColor: var(--colorLightBlue);
+  --MyAccordion-tab-after-color: var(--colorDarkGray);
+  --MyAccordion-tab-onHover-backgroundColor: var(--colorBlue);
+  --MyAccordion-tab-isActive-backgroundColor: var(--colorBlue);
+}
+
+.MyAccordion-tab {
+  background-color: var(--MyAccordion-tab-backgroundColor);
+  border: none;
+  color: var(--MyAccordion-color);
+  cursor: pointer;
+  font-size: 15px;
+  outline: none;
+  padding: 18px;
+  text-align: left;
+  transition: 1s;
+}
+
+.MyAccordion-tab.is-active {
+  background-color: var(--MyAccordion-tab-isActive-backgroundColor);
+}
+
+.MyAccordion-tab.is-active::after {
+  content: "\2796"; /* (-) */
+}
+
+.MyAccordion-tab.is-active + dd {
+  display: block;
+}
+
+.MyAccordion-tab:hover {
+  background-color: var(--MyAccordion-tab-onHover-backgroundColor);
+}
+
+.MyAccordion-tab::after {
+  color: var(--MyAccordion-tab-after-color);
+  content: "\02795"; /* (+) */
+  float: right;
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.MyAccordion-content {
+  background-color: var(--MyAccordion-content-backgroundColor);
+  display: none;
+  overflow: hidden;
+  padding: 18px;
+}
+
+.MyAccordion-button {
+  background-color: var(--Myaccordion-button-backgroundColor);
+  border: 0;
+  color: var(--Myaccordion-button-color);
+  height: 35px;
+  width: 100%;
+}
+
+.MyAccordion-button:hover {
+  background-color: var(--Myaccordion-button-onHover-backgroundColor);
+  cursor: pointer;
+}

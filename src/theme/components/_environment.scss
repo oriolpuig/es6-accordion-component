@@ -1,0 +1,39 @@
+@import "../_variables.scss";
+
+:root {
+  --fontFamily: Arial, Helvetica, sans-serif;
+  --Environment-backgroundColor: var(--colorBlack);
+  --Environment-color: var(--colorWhite);
+  --Environment-production-backgroundColor: var(--colorDarkBlue);
+  --Environment-development-backgroundColor: var(--colorRed);
+}
+
+.Environment {
+  background: var(--Environment-backgroundColor);
+  color: var(--Environment-color);
+  font-family: var(--fontFamily);
+  position: fixed;
+  right: -30px;
+  text-align: center;
+  top: 35px;
+  transform: rotate(45deg);
+  width: 150px;
+}
+
+.Environment--development {
+  background: var(--Environment-development-backgroundColor);
+}
+
+.Environment--production {
+  background: var(--Environment-production-backgroundColor);
+}
+
+@media (max-width: 767px) {
+
+  .Environment {
+    bottom: 0;
+    right: 0;
+    top: auto;
+    transform: none;
+  }
+}
