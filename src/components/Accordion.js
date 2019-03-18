@@ -20,9 +20,21 @@ export default class Accordion extends Component {
         this._collection.append(element);
     }
 
+    renderAddMoreButton(id) {
+        const btnElement = new CustomElement('input').create();
+        btnElement.type = 'button';
+        btnElement.value = 'Add new item';
+        btnElement.className = `${id}-button`;
+        btnElement.onclick = () => this.addTab();
+        return btnElement;
+    }
+
     html() {
         if (this._tabs && this._tabs.length > 0) {
             this._collection = this._collection || new CustomElement('dl', this._id, this._id).create();
+            const button = this.renderAddMoreButton(this._id);
+            this.addElementToCollection(button);
+
             this._tabs.forEach((it, idx) => {
                 it.collapse();
                 if (idx === this._selectedIndex) {
@@ -39,8 +51,12 @@ export default class Accordion extends Component {
         return this._collection;
     }
 
-    addTab(element) {
+    addTab() {
         this.remove();
+        const element = {
+            title: `Section ${this._tabs.length + 1}`,
+            message: `Section ${this._tabs.length + 1} Content...`
+        }
         this._tabs.push(new Tab(element.title, element.message));
         this.render();
     }

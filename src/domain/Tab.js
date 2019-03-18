@@ -19,14 +19,6 @@ export default class Tab {
         return this._isActive;
     }
 
-    renderHeader(id, idx, onClickCallback) {
-        const titleElement = new CustomElement('dt').create();
-        titleElement.className = `${id}-tab${this.isActive() ? ' is-active' : ''}`;
-        titleElement.innerHTML = this.title;
-        titleElement.onclick = () => { onClickCallback(idx); }
-        return titleElement;
-    }
-
     renderContent(id) {
         const contentElement = new CustomElement('dd').create();
         contentElement.className = `${id}-content`;
@@ -34,5 +26,13 @@ export default class Tab {
         paragraphElement.innerHTML = this.content;
         contentElement.append(paragraphElement);
         return contentElement;
+    }
+
+    renderHeader(id, idx, onClickCallback) {
+        const titleElement = new CustomElement('dt').create();
+        titleElement.className = `${id}-tab${this.isActive() ? ' is-active' : ''}`;
+        titleElement.innerHTML = this.title;
+        titleElement.onclick = () => { onClickCallback(idx); }
+        return titleElement;
     }
 }
