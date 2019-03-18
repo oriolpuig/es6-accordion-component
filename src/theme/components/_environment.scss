@@ -1,10 +1,11 @@
+@import "../_variables.scss";
+
 :root {
   --fontFamily: Arial, Helvetica, sans-serif;
-  --Environment-backgroundColor: black;
-  --Environment-color: white;
-  --Environment-isSticked-backgroundColor: yellow;
-  --Environment-production-backgroundColor: #04549e;
-  --Environment-development-backgroundColor: #e45e55;
+  --Environment-backgroundColor: var(--colorBlack);
+  --Environment-color: var(--colorWhite);
+  --Environment-production-backgroundColor: var(--colorDarkBlue);
+  --Environment-development-backgroundColor: var(--colorRed);
 }
 
 .Environment {
