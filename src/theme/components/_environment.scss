@@ -14,7 +14,7 @@
   position: absolute;
   right: -30px;
   text-align: center;
-  top: 0;
+  top: 35px;
   transform: rotate(45deg);
   width: 150px;
 }
@@ -30,8 +30,9 @@
 @media (max-width: 767px) {
 
   .Environment {
+    bottom: 0;
     right: 0;
-    top: 0;
+    top: auto;
     transform: none;
   }
 }

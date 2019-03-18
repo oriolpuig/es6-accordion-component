@@ -1,7 +1,6 @@
 import Component from './Component';
 import CustomElement from '../domain/CustomElement';
 import Tab from '../domain/Tab';
-import './Accordion.scss';
 
 export default class Accordion extends Component {
     constructor(elements = []) {
@@ -23,15 +22,15 @@ export default class Accordion extends Component {
 
     html() {
         if (this._tabs && this._tabs.length > 0) {
-            this._collection = this._collection || new CustomElement('dl', this._id).create();
+            this._collection = this._collection || new CustomElement('dl', this._id, this._id).create();
             this._tabs.forEach((it, idx) => {
                 it.collapse();
                 if (idx === this._selectedIndex) {
                     it.expand();
                 }
 
-                const title = it.renderHeader(idx, it.isActive() ? this.collapse : this.expand);
-                const content = it.renderPanel();
+                const title = it.renderHeader(this._id, idx, it.isActive() ? this.collapse : this.expand);
+                const content = it.renderContent(this._id);
                 this.addElementToCollection(title);
                 this.addElementToCollection(content);
             });

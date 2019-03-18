@@ -11,3 +11,11 @@ html {
   color: var(--base-color);
   font-size: calc(var(--base-font) * 2);
 }
+
+@media (min-width: 1024px) {
+
+  #root {
+    margin: 0 auto;
+    width: 954px;
+  }
+}

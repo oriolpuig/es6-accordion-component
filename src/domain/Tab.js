@@ -19,17 +19,17 @@ export default class Tab {
         return this._isActive;
     }
 
-    renderHeader(idx, onClickCallback) {
+    renderHeader(id, idx, onClickCallback) {
         const titleElement = new CustomElement('dt').create();
-        titleElement.className = `accordion ${this.isActive() ? 'active' : ''}`;
+        titleElement.className = `${id}-tab${this.isActive() ? ' is-active' : ''}`;
         titleElement.innerHTML = this.title;
         titleElement.onclick = () => { onClickCallback(idx); }
         return titleElement;
     }
 
-    renderPanel() {
+    renderContent(id) {
         const contentElement = new CustomElement('dd').create();
-        contentElement.className = 'panel';
+        contentElement.className = `${id}-content`;
         const paragraphElement = new CustomElement('p').create();
         paragraphElement.innerHTML = this.content;
         contentElement.append(paragraphElement);
