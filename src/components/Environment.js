@@ -9,7 +9,7 @@ export default class Environment extends Component {
 
     html() {
         const div = new CustomElement('div', 'Environment').create();
-        div.className = 'Environment';
+        div.className = `Environment Environment--${process.env.NODE_ENV}`;
         div.append(this._env);
         return div;
     }
