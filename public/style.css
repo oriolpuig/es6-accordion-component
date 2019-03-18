@@ -904,7 +904,7 @@ fieldset {
   outline: none;
   padding: 18px;
   text-align: left;
-  transition: 0.4s;
+  transition: 1s;
 }
 
 .MyAccordion-tab.is-active {
@@ -938,11 +938,24 @@ fieldset {
   padding: 18px;
 }
 
+.MyAccordion-button {
+  background-color: #1eb046;
+  border: 0;
+  color: #fff;
+  height: 35px;
+  width: 100%;
+}
+
+.MyAccordion-button:hover {
+  background-color: #178435;
+  cursor: pointer;
+}
+
 .Environment {
-  background: black;
-  color: white;
+  background: #000;
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
+  position: fixed;
   right: -30px;
   text-align: center;
   top: 35px;

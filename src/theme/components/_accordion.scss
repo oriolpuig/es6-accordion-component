@@ -1,10 +1,15 @@
+@import "../_variables.scss";
+
 :root {
-  --MyAccordion-color: #fff;
+  --MyAccordion-color: var(--colorWhite);
   --MyAccordion-content-backgroundColor: #f2f0f5;
-  --MyAccordion-tab-backgroundColor: #85a6b5;
-  --MyAccordion-tab-after-color: #777;
-  --MyAccordion-tab-onHover-backgroundColor: #1e97b0;
-  --MyAccordion-tab-isActive-backgroundColor: #1e97b0;
+  --Myaccordion-button-backgroundColor: var(--colorGreen);
+  --Myaccordion-button-color: var(--colorWhite);
+  --Myaccordion-button-onHover-backgroundColor: var(--colorDarkGreen);
+  --MyAccordion-tab-backgroundColor: var(--colorLightBlue);
+  --MyAccordion-tab-after-color: var(--colorDarkGray);
+  --MyAccordion-tab-onHover-backgroundColor: var(--colorBlue);
+  --MyAccordion-tab-isActive-backgroundColor: var(--colorBlue);
 }
 
 .MyAccordion-tab {
@@ -16,7 +21,7 @@
   outline: none;
   padding: 18px;
   text-align: left;
-  transition: 0.4s;
+  transition: 1s;
 }
 
 .MyAccordion-tab.is-active {
@@ -48,4 +53,17 @@
   display: none;
   overflow: hidden;
   padding: 18px;
+}
+
+.MyAccordion-button {
+  background-color: var(--Myaccordion-button-backgroundColor);
+  border: 0;
+  color: var(--Myaccordion-button-color);
+  height: 35px;
+  width: 100%;
+}
+
+.MyAccordion-button:hover {
+  background-color: var(--Myaccordion-button-onHover-backgroundColor);
+  cursor: pointer;
 }
