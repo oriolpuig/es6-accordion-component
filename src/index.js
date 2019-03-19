@@ -8,5 +8,3 @@ environment.render();
 
 const accordion = new Accordion(data.elements);
 accordion.render();
-
-// accordion.addTab({ title: 'Oriol', message: 'Oriol Content!!' });

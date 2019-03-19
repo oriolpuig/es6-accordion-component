@@ -900,7 +900,7 @@ fieldset {
   border: none;
   color: #fff;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 24px;
   outline: none;
   padding: 18px;
   text-align: left;
@@ -927,7 +927,7 @@ fieldset {
   color: #777;
   content: "\02795"; /* (+) */
   float: right;
-  font-size: 13px;
+  font-size: 24px;
   margin-left: 5px;
 }
 
@@ -942,7 +942,8 @@ fieldset {
   background-color: #1eb046;
   border: 0;
   color: #fff;
-  height: 35px;
+  font-size: 24px;
+  height: 50px;
   width: 100%;
 }
 
@@ -990,15 +991,42 @@ fieldset {
   display: -ms-flexbox;
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
-  height: 60px;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 80px;
+}
+
+.Header h1 {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+              -ms-grid-row-align: center;
+          align-self: center;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .Header {
+    min-height: 100px;
+  }
+
+  .Header h1 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
 }
 
 html {
   color: inherit;
-  font-size: calc(16px sans-serif * 2);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 48px;
 }
 
 @media (min-width: 1024px) {
