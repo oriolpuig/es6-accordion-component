@@ -900,7 +900,7 @@ fieldset {
   border: none;
   color: #fff;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 24px;
   outline: none;
   padding: 18px;
   text-align: left;
@@ -927,7 +927,7 @@ fieldset {
   color: #777;
   content: "\02795"; /* (+) */
   float: right;
-  font-size: 13px;
+  font-size: 24px;
   margin-left: 5px;
 }
 
@@ -942,7 +942,8 @@ fieldset {
   background-color: #1eb046;
   border: 0;
   color: #fff;
-  height: 35px;
+  font-size: 24px;
+  height: 50px;
   width: 100%;
 }
 
