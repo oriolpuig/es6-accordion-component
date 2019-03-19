@@ -17,7 +17,7 @@
   border: none;
   color: var(--MyAccordion-color);
   cursor: pointer;
-  font-size: 15px;
+  font-size: calc(var(--base-fontSize) * 1.5);
   outline: none;
   padding: 18px;
   text-align: left;
@@ -44,7 +44,7 @@
   color: var(--MyAccordion-tab-after-color);
   content: "\02795"; /* (+) */
   float: right;
-  font-size: 13px;
+  font-size: calc(var(--base-fontSize) * 1.5);
   margin-left: 5px;
 }
 
@@ -59,7 +59,8 @@
   background-color: var(--Myaccordion-button-backgroundColor);
   border: 0;
   color: var(--Myaccordion-button-color);
-  height: 35px;
+  font-size: calc(var(--base-fontSize) * 1.5);
+  height: 50px;
   width: 100%;
 }
 
