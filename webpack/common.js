@@ -1,9 +1,10 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, '../docs/dist'),
+        path: path.resolve(__dirname, '../docs'),
         filename: 'bundle.js'
     },
     module: {
@@ -29,5 +30,11 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'ES6 Accordion component',
+            template: './public/index.html', 
+        }),
+    ]
 }
