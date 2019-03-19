@@ -6,33 +6,31 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./common');
 
 module.exports = merge(common, {
-    mode: 'development',
-    devServer: {
-        contentBase: path.join(__dirname, '../docs'),
-        compress: true,
-        port: 9000,
-        watchContentBase: true
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(sa|sc|c)ss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'postcss-loader',
-                    'sass-loader',
-                ],
-            }
-        ]
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: '[name].css',
-            chunkFilename: '[id].css',
-        })
+  mode: 'development',
+  devServer: {
+    contentBase: path.join(__dirname, '../docs'),
+    compress: true,
+    port: 9000,
+    watchContentBase: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      }
     ]
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    })
+  ]
 });
