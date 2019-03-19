@@ -1,7 +1,6 @@
 @import "../_variables.scss";
 
 :root {
-  --fontFamily: Arial, Helvetica, sans-serif;
   --Environment-backgroundColor: var(--colorBlack);
   --Environment-color: var(--colorWhite);
   --Environment-production-backgroundColor: var(--colorDarkBlue);
@@ -11,7 +10,7 @@
 .Environment {
   background: var(--Environment-backgroundColor);
   color: var(--Environment-color);
-  font-family: var(--fontFamily);
+  font-family: var(--base-fontFamily);
   position: fixed;
   right: -30px;
   text-align: center;

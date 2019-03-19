@@ -21,22 +21,15 @@ export default class Accordion extends Component {
         this._collection.append(element);
     }
 
-    // renderAddMoreButton(id) {
-    //     const btnElement = new CustomElement('input').create();
-    //     btnElement.type = 'button';
-    //     btnElement.value = 'Add new item';
-    //     btnElement.className = `${id}-button`;
-    //     btnElement.onclick = () => this.addTab();
-    //     return btnElement;
-    // }
+    renderAddMoreButton(id) {
+        const b = new Button(this._id, 'Add new item', this.addTab);
+        this.addElementToCollection(b.html());
+    }
 
     html() {
         if (this._tabs && this._tabs.length > 0) {
             this._collection = this._collection || new CustomElement('dl', this._id, this._id).create();
-            const b = new Button(this._id, 'Add new item', this.addTab);
-            this.addElementToCollection(b.html());
-            // const button = this.renderAddMoreButton(this._id);
-            // this.addElementToCollection(button);
+            this.renderAddMoreButton();
 
             this._tabs.forEach((it, idx) => {
                 it.collapse();

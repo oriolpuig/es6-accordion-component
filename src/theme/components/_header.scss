@@ -1,14 +1,33 @@
+@import "../_variables.scss";
+
 :root {
-  --fontFamily: Arial, Helvetica, sans-serif;
-  --Header-backgroundColor: #1e97b0;
-  --Header-color: #fff;
+  --Header-backgroundColor: var(--colorBlue);
+  --Header-color: var(--colorWhite);
 }
 
 .Header {
   background-color: var(--Header-backgroundColor);
   color: var(--Header-color);
   display: flex;
-  font-family: var(--fontFamily);
-  height: 60px;
+  font-family: var(--base-fontFamily);
   justify-content: center;
+  min-height: 80px;
+}
+
+.Header h1 {
+  align-self: center;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .Header {
+    min-height: 100px;
+  }
+
+  .Header h1 {
+    font-size: calc(var(--base-fontSize) * 3);
+    line-height: calc(var(--base-lineHeight) * 3);
+  }
+
 }
